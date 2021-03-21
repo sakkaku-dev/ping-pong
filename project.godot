@@ -69,7 +69,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=256
-window/size/height=150
+window/size/height=256
 window/size/test_width=1469
 window/size/test_height=512
 window/stretch/mode="2d"
@@ -118,6 +118,12 @@ move_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
+start={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -126,6 +132,7 @@ move_down={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="player_hurtbox"
 2d_physics/layer_5="enemy_hurtbox"
+2d_physics/layer_6="bounce"
 
 [rendering]
 

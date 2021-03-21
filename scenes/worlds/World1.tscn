@@ -7,16 +7,16 @@
 script = ExtResource( 2 )
 
 [node name="LeftWall" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2, 75 )
+position = Vector2( 0, 128 )
 
 [node name="RightWall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 258, 75 )
+position = Vector2( 256, 128 )
 rotation = 3.14159
 
 [node name="TopWall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, -2 )
+position = Vector2( 128, 0 )
 rotation = 1.5708
 
 [node name="BottomWall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 152 )
+position = Vector2( 128, 256 )
 rotation = 4.71239

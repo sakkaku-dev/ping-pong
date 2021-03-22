@@ -8,15 +8,19 @@ script = ExtResource( 2 )
 
 [node name="LeftWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 128 )
+lock_direction = Vector2( 0, 1 )
 
 [node name="RightWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 256, 128 )
 rotation = 3.14159
+lock_direction = Vector2( 0, 1 )
 
 [node name="TopWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 0 )
 rotation = 1.5708
+lock_direction = Vector2( 1, 0 )
 
 [node name="BottomWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 256 )
 rotation = 4.71239
+lock_direction = Vector2( 1, 0 )

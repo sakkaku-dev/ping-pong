@@ -9,6 +9,7 @@ var walls = []
 func _ready():
 	for child in get_children():
 		if child is Wall:
+			child.connect("ball_passed", self, "call_deferred", ["spawn_ball"])
 			walls.append(child)
 
 
@@ -38,7 +39,7 @@ func spawn_player(event: InputEvent) -> PlayerInput:
 
 func get_first_available_wall() -> Node2D:
 	for wall in walls:
-		if not wall.paddle_spawned:
+		if not wall.is_paddle_spawned():
 			return wall
 	return null
 

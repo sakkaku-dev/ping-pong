@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var world = $World
+onready var start_menu = $CanvasLayer/MarginContainer/CenterContainer/StartMenu
 
 var host_input: PlayerInput
 
@@ -13,6 +14,11 @@ func _unhandled_input(event: InputEvent):
 		if not host_input:
 			host_input = input
 
-func _process(delta):
-	if host_input and host_input.is_just_pressed("start"):
-		world.spawn_ball()
+
+func _on_Start_pressed():
+	start_menu.hide()
+	world.spawn_ball()
+
+
+func _on_Bot_pressed():
+	world.spawn_bot()

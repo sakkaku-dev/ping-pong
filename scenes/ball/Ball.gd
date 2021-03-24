@@ -7,7 +7,9 @@ export var speed = 100
 var velocity = Vector2.ZERO
 var paddle: Paddle
 
+
 func _ready():
+	set_physics_process(false)
 	velocity.x = [-1, 1][randi() % 2]
 	while abs(velocity.y) < 0.05: # Prevent to straight angles
 		velocity.y = rand_range(-0.8, 0.8)

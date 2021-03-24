@@ -5,7 +5,9 @@ signal ball_spawned
 const paddle = preload("res://scenes/paddle/Paddle.tscn")
 const player_ctrl = preload("res://scenes/controller/PlayerController.tscn")
 const bot_ctrl = preload("res://scenes/controller/BotController.tscn")
-const ball = preload("res://scenes/ball/Ball.tscn")
+
+export var ball_spawner_path: NodePath
+onready var ball_spawner = get_node(ball_spawner_path)
 
 var walls = []
 var bots = []
@@ -22,12 +24,10 @@ func _wall_spawn() -> void:
 
 
 func spawn_ball():
-	var ball_instance = ball.instance()
-	add_child(ball_instance)
-	ball_instance.global_position = _get_viewport_center()
-	
+	var ball = ball_spawner.spawn()
+	add_child(ball)
 	for bot in bots:
-		bot.ball = ball_instance
+		bot.ball = ball
 	emit_signal("ball_spawned")
 
 

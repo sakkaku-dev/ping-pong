@@ -7,6 +7,7 @@ var host_input: PlayerInput
 
 func _ready():
 	randomize()
+	start_menu.show()
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action("ui_accept"):

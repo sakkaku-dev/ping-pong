@@ -1,5 +1,7 @@
 extends Node2D
 
+signal ball_spawned
+
 const paddle = preload("res://scenes/paddle/Paddle.tscn")
 const player_ctrl = preload("res://scenes/controller/PlayerController.tscn")
 const bot_ctrl = preload("res://scenes/controller/BotController.tscn")
@@ -11,8 +13,12 @@ var bots = []
 func _ready():
 	for child in get_children():
 		if child is Wall:
-			child.connect("ball_passed", self, "call_deferred", ["spawn_ball"])
+			child.connect("ball_passed", self, "_wall_spawn")
 			walls.append(child)
+
+
+func _wall_spawn() -> void:
+	call_deferred("spawn_ball")
 
 
 func spawn_ball():
@@ -22,6 +28,7 @@ func spawn_ball():
 	
 	for bot in bots:
 		bot.ball = ball_instance
+	emit_signal("ball_spawned")
 
 
 func spawn_bot() -> void:

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Paddle
 
+signal scored
+
 export var speed = 200
 export var acceleration = 1500
 

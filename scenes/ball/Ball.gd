@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Ball
 
-export var speed = 100
+export var speed = 50
 
 var velocity = Vector2.ZERO
 var paddle: Paddle
@@ -18,6 +18,6 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		if collision.collider is Paddle:
-			var lock_dir = 
-			paddle = collision.collider
+			if collision.normal.dot(collision.collider.lock_direction) == 0:
+				paddle = collision.collider
 		velocity = velocity.bounce(collision.normal)

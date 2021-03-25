@@ -18,5 +18,6 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		if collision.collider is Paddle:
+			var lock_dir = 
 			paddle = collision.collider
 		velocity = velocity.bounce(collision.normal)

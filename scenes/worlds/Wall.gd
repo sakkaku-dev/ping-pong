@@ -23,10 +23,12 @@ func set_paddle(paddle: Paddle) -> void:
 	var center_dir = (_get_viewport_center() - transform.origin).normalized()
 	paddle.transform.origin += center_dir * player_wall_offset
 	paddle.lock_direction = lock_direction
-	paddle.connect("scored", score, "scored")
-	wall_paddle = paddle
-	set_collision_layer_bit(5, false)
-	sprite.hide()
+	if paddle.connect("scored", score, "scored") == OK:
+		wall_paddle = paddle
+		set_collision_layer_bit(5, false)
+		sprite.hide()
+	else:
+		print("Could not connect scored")
 
 
 func _get_viewport_center() -> Vector2:
@@ -38,5 +40,7 @@ func _on_Area2D_body_entered(body: Node):
 	hit.play()
 	body.queue_free()
 	if body is Ball and body.paddle and body.paddle != wall_paddle:
-		body.paddle.emit_signal("scored")
-	emit_signal("ball_passed")
+		body.paddle.scored()
+	
+	if not body.is_copy:
+		emit_signal("ball_passed")

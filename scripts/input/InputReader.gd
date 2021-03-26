@@ -35,7 +35,7 @@ func _register_action(event: InputEvent, action: String):
 			inputs.erase(action)
 
 
-func _process(delta):
+func _process(_delta):
 	just_pressed = []
 
 

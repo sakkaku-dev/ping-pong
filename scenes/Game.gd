@@ -2,6 +2,7 @@ extends Node2D
 
 onready var world = $World
 onready var start_menu = $CanvasLayer/MarginContainer/CenterContainer/StartMenu
+onready var bgm = $BGM
 
 var host_input: PlayerInput
 
@@ -19,6 +20,7 @@ func _unhandled_input(event: InputEvent):
 func _on_Start_pressed():
 	start_menu.hide()
 	world.spawn_ball()
+	bgm.play()
 
 
 func _on_Bot_pressed():

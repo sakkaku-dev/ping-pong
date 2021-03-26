@@ -11,6 +11,7 @@ export var score_path: NodePath
 onready var score = get_node(score_path)
 
 onready var sprite = $Sprite
+onready var hit = $Hit
 
 var wall_paddle: Paddle
 
@@ -34,6 +35,7 @@ func _get_viewport_center() -> Vector2:
 
 
 func _on_Area2D_body_entered(body: Node):
+	hit.play()
 	body.queue_free()
 	if body is Ball and body.paddle and body.paddle != wall_paddle:
 		body.paddle.emit_signal("scored")

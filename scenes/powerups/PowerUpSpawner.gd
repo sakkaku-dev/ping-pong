@@ -1,7 +1,7 @@
 extends Node2D
 
 export var initial_delay = 10
-export var spawn_time = 1
+export var spawn_time = 10
 export var max_power_ups = 3
 export var powerup_distance = 10
 

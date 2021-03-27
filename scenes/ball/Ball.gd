@@ -6,6 +6,8 @@ export var speed = 50
 
 onready var impact = $Impact
 
+const min_angle = deg2rad(30)
+
 var velocity = Vector2.ZERO
 var paddle: Paddle
 	
@@ -28,8 +30,9 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.normal)
 
 		var angle = velocity.angle_to(paddle_velocity)
-		var multiply = min(0.5, paddle_velocity.length())
-		velocity = velocity.rotated(angle * multiply)
+		if angle <= min_angle: # Do not make ball go even straighter
+			var multiply = min(0.5, paddle_velocity.length())
+			velocity = velocity.rotated(angle * multiply)
 
 func copy() -> Ball:
 	var ball = load("res://scenes/ball/Ball.tscn").instance()

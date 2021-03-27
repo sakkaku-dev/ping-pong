@@ -42,5 +42,4 @@ func _on_Area2D_body_entered(body: Node):
 	if body is Ball and body.paddle and body.paddle != wall_paddle:
 		body.paddle.scored()
 	
-	if not body.is_copy:
-		emit_signal("ball_passed")
+	emit_signal("ball_passed")

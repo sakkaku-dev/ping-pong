@@ -39,16 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/powerups/PowerUp.gd"
 }, {
-"base": "UnitTest",
-"class": "SceneTest",
-"language": "GDScript",
-"path": "res://tests/SceneTest.gd"
-}, {
-"base": "Node",
-"class": "UnitTest",
-"language": "GDScript",
-"path": "res://tests/UnitTest.gd"
-}, {
 "base": "StaticBody2D",
 "class": "Wall",
 "language": "GDScript",
@@ -61,8 +51,6 @@ _global_script_class_icons={
 "PaddleController": "",
 "PlayerInput": "",
 "PowerUp": "",
-"SceneTest": "",
-"UnitTest": "",
 "Wall": ""
 }
 

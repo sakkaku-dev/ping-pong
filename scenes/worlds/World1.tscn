@@ -10,6 +10,9 @@
 script = ExtResource( 2 )
 ball_spawner_path = NodePath("BallSpawner")
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [node name="BallSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 128, 128 )
 
@@ -89,4 +92,8 @@ margin_left = 24.0
 margin_top = 56.0
 margin_right = 44.0
 margin_bottom = 80.0
-[connection signal="ball_spawned" from="." to="CanvasLayer/ScoreContainer" method="show"]
+[connection signal="timeout" from="SpawnTimer" to="." method="spawn_ball"]
+[connection signal="score_change" from="CanvasLayer/ScoreContainer/Score/Label" to="CanvasLayer/ScoreContainer" method="show"]
+[connection signal="score_change" from="CanvasLayer/ScoreContainer/Score/Label2" to="CanvasLayer/ScoreContainer" method="show"]
+[connection signal="score_change" from="CanvasLayer/ScoreContainer/Score/Label3" to="CanvasLayer/ScoreContainer" method="show"]
+[connection signal="score_change" from="CanvasLayer/ScoreContainer/Score/Label4" to="CanvasLayer/ScoreContainer" method="show"]

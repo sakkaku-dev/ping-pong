@@ -9,6 +9,8 @@ const bot_ctrl = preload("res://scenes/controller/BotController.tscn")
 export var ball_spawner_path: NodePath
 onready var ball_spawner = get_node(ball_spawner_path)
 
+onready var spawn_timer = $SpawnTimer
+
 var walls = []
 var bots = []
 
@@ -20,10 +22,13 @@ func _ready():
 
 
 func _wall_spawn() -> void:
-	call_deferred("spawn_ball")
+	spawn_timer.start()
 
 
 func spawn_ball():
+	if get_tree().get_nodes_in_group("Ball").size() > 0:
+		return
+
 	var ball = ball_spawner.spawn()
 	add_child(ball)
 	for bot in bots:

@@ -8,8 +8,6 @@ onready var impact = $Impact
 
 var velocity = Vector2.ZERO
 var paddle: Paddle
-
-var is_copy = false
 	
 func set_random_direction():
 	velocity.x = [-1, 1][randi() % 2]
@@ -31,5 +29,4 @@ func copy() -> Ball:
 	ball.paddle = paddle
 	ball.velocity = velocity
 	ball.global_position = global_position
-	ball.is_copy = true
 	return ball

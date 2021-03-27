@@ -31,8 +31,6 @@ func spawn_ball():
 
 	var ball = ball_spawner.spawn()
 	add_child(ball)
-	for bot in bots:
-		bot.ball = ball
 	emit_signal("ball_spawned")
 
 

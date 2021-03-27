@@ -10,6 +10,7 @@ export var ball_spawner_path: NodePath
 onready var ball_spawner = get_node(ball_spawner_path)
 
 onready var spawn_timer = $SpawnTimer
+onready var powerup_spawner = $PowerUpSpawner
 
 var walls = []
 var bots = []
@@ -19,6 +20,11 @@ func _ready():
 		if child is Wall:
 			child.connect("ball_passed", self, "_wall_spawn")
 			walls.append(child)
+
+
+func start_game():
+	spawn_ball()
+	powerup_spawner.start()
 
 
 func _wall_spawn() -> void:

@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent):
 
 func _on_Start_pressed():
 	start_menu.hide()
-	world.spawn_ball()
+	world.start_game()
 	bgm.play()
 
 

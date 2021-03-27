@@ -18,10 +18,18 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		impact.play()
+		
+		var paddle_velocity = Vector2.ZERO
 		if collision.collider is Paddle:
 			if collision.normal.dot(collision.collider.lock_direction) == 0:
 				paddle = collision.collider
+				paddle_velocity = paddle.velocity.normalized()
+
 		velocity = velocity.bounce(collision.normal)
+
+		var angle = velocity.angle_to(paddle_velocity)
+		var multiply = min(0.5, paddle_velocity.length())
+		velocity = velocity.rotated(angle * multiply)
 
 func copy() -> Ball:
 	var ball = load("res://scenes/ball/Ball.tscn").instance()

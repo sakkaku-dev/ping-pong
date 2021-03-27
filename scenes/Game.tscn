@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/worlds/World1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/theme.tres" type="Theme" id=3]
 [ext_resource path="res://scenes/bgm.ogg" type="AudioStream" id=4]
-[ext_resource path="res://scenes/powerups/MultiplyBall.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,32 +48,5 @@ margin_top = 40.0
 margin_right = 88.0
 margin_bottom = 70.0
 text = "Add Bot"
-
-[node name="MultiplyBall" parent="." instance=ExtResource( 5 )]
-position = Vector2( 79.4597, 115.481 )
-
-[node name="MultiplyBall2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 141.968, 192.292 )
-
-[node name="MultiplyBall3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 145.676, 66.2164 )
-
-[node name="MultiplyBall4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 70.984, 54.0326 )
-
-[node name="MultiplyBall5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 194.941, 96.9408 )
-
-[node name="MultiplyBall6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 203.947, 152.033 )
-
-[node name="MultiplyBall7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 61.9785, 183.817 )
-
-[node name="MultiplyBall8" parent="." instance=ExtResource( 5 )]
-position = Vector2( 191.763, 30.7244 )
-
-[node name="MultiplyBall9" parent="." instance=ExtResource( 5 )]
-position = Vector2( 190.703, 215.601 )
 [connection signal="pressed" from="CanvasLayer/MarginContainer/CenterContainer/StartMenu/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/CenterContainer/StartMenu/Bot" to="." method="_on_Bot_pressed"]

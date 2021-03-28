@@ -4,4 +4,4 @@ tests/results
 *.import
 .import
 
-build/
+/build/

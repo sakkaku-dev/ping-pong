@@ -11,7 +11,7 @@ func _ready():
 	start_menu.show()
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action("ui_accept"):
+	if event.is_action("join"):
 		var input = world.spawn_player(event)
 		if not host_input:
 			host_input = input

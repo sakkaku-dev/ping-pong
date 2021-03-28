@@ -32,21 +32,27 @@ __meta__ = {
 }
 
 [node name="StartMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/CenterContainer"]
-margin_left = 84.0
-margin_top = 93.0
-margin_right = 172.0
-margin_bottom = 163.0
+margin_left = 43.0
+margin_top = 86.0
+margin_right = 212.0
+margin_bottom = 169.0
 custom_constants/separation = 10
 
 [node name="Start" type="Button" parent="CanvasLayer/MarginContainer/CenterContainer/StartMenu"]
-margin_right = 88.0
-margin_bottom = 30.0
+margin_right = 169.0
+margin_bottom = 23.0
 text = "Start"
 
 [node name="Bot" type="Button" parent="CanvasLayer/MarginContainer/CenterContainer/StartMenu"]
-margin_top = 40.0
-margin_right = 88.0
-margin_bottom = 70.0
+margin_top = 33.0
+margin_right = 169.0
+margin_bottom = 56.0
 text = "Add Bot"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer/StartMenu"]
+margin_top = 66.0
+margin_right = 169.0
+margin_bottom = 83.0
+text = "Press 'Space' or 'A' to join"
 [connection signal="pressed" from="CanvasLayer/MarginContainer/CenterContainer/StartMenu/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/CenterContainer/StartMenu/Bot" to="." method="_on_Bot_pressed"]

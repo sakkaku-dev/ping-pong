@@ -21,18 +21,17 @@ func _physics_process(delta):
 	if collision:
 		impact.play()
 		
-		var paddle_velocity = Vector2.ZERO
+		velocity = velocity.bounce(collision.normal)
+		
 		if collision.collider is Paddle:
 			if collision.normal.dot(collision.collider.lock_direction) == 0:
 				paddle = collision.collider
-				paddle_velocity = paddle.velocity.normalized()
-
-		velocity = velocity.bounce(collision.normal)
-
-		var angle = velocity.angle_to(paddle_velocity)
-		if angle <= min_angle: # Do not make ball go even straighter
-			var multiply = min(0.5, paddle_velocity.length())
-			velocity = velocity.rotated(angle * multiply)
+				
+				var paddle_velocity = paddle.velocity.normalized()
+				var angle = velocity.angle_to(paddle_velocity)
+				if angle > min_angle:
+					var diff = angle - min_angle
+					velocity = velocity.rotated(min(angle * 0.3, diff))
 
 func copy() -> Ball:
 	var ball = load("res://scenes/ball/Ball.tscn").instance()

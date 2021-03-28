@@ -1,7 +1,7 @@
 #!/bin/sh
 
-godot --export "Windows" ./build/win/main.exe
-godot --export "Linux" ./build/linux/main.x86_64
+#godot --export "Windows" ./build/win/main.exe
+#godot --export "Linux" ./build/linux/main.x86_64
 godot --export "HTML5" ./build/web/index.html
 
 git checkout gh-pages

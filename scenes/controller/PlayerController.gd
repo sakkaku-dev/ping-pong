@@ -9,6 +9,6 @@ func _unhandled_input(event):
 
 func get_motion(_paddle: Paddle) -> Vector2:
 	return Vector2(
-		input.get_action_strength("move_left") - input.get_action_strength("move_right"),
+		input.get_action_strength("move_right") - input.get_action_strength("move_left"),
 		input.get_action_strength("move_down") - input.get_action_strength("move_up")
 	)

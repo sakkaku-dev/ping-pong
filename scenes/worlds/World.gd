@@ -11,6 +11,7 @@ onready var ball_spawner = get_node(ball_spawner_path)
 
 onready var spawn_timer = $SpawnTimer
 onready var powerup_spawner = $PowerUpSpawner
+onready var light = $BallSpawner/Light2D
 
 var walls = []
 var bots = []
@@ -28,6 +29,7 @@ func start_game():
 
 
 func _wall_spawn() -> void:
+	light.show()
 	spawn_timer.start()
 
 
@@ -37,8 +39,9 @@ func spawn_ball():
 
 	var ball = ball_spawner.spawn()
 	add_child(ball)
+	ball.set_physics_process(false)
 	emit_signal("ball_spawned")
-
+	light.hide()
 
 func spawn_bot() -> void:
 	var ctrl = bot_ctrl.instance()

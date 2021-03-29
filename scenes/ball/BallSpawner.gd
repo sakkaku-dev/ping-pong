@@ -8,12 +8,11 @@ var spawned_ball: Ball
 
 func spawn() -> Ball:
 	var ball_instance = ball.instance()
-	ball_instance.set_physics_process(false)
 	ball_instance.set_random_direction()
 	ball_instance.global_position = global_position
 	spawned_ball = ball_instance
 	timer.start()
-	return ball_instance
+	return spawned_ball
 
 
 func _on_SpawnTimer_timeout():

@@ -10,7 +10,8 @@ const min_angle = deg2rad(30)
 
 var velocity = Vector2.ZERO
 var paddle: Paddle
-	
+
+
 func set_random_direction():
 	velocity.x = [-1, 1][randi() % 2]
 	while abs(velocity.y) < 0.05: # Prevent to straight angles

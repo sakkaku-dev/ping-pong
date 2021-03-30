@@ -162,5 +162,5 @@ join={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.164706, 0.2, 0.227451, 1 )
+environment/default_clear_color=Color( 0.137255, 0.156863, 0.180392, 1 )
 environment/default_environment="res://default_env.tres"
